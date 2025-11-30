@@ -1,0 +1,34 @@
+﻿@model List<WebBanSach.Models.Book>
+
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+}
+
+<h2>Kết quả tìm kiếm</h2>
+
+@if (!Model.Any())
+{
+    <p>Không tìm thấy kết quả phù hợp.</p>
+}
+else
+{
+    <div class="row mt-3">
+        @foreach (var b in Model)
+        {
+            <div class="col-md-3 mb-3">
+                <a href="/Book/Details/@b.BookID" style="text-decoration:none; color:black;">
+                    <div class="card" style="border:1px solid #d9c8a8;">
+                        <img src="@(b.BookImages.FirstOrDefault()?.ImageUrl ?? "/Content/images/no-img.jpg")"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;" />
+
+                        <div class="card-body">
+                            <strong>@b.Title</strong><br />
+                            <span>@String.Format("{0:N0}₫", b.Price)</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+}

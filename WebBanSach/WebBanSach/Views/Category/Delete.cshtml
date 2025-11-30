@@ -1,0 +1,32 @@
+﻿@model WebBanSach.Models.Category
+
+@{
+    ViewBag.Title = "Xóa Danh mục";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Bạn có chắc chắn muốn xóa danh mục này?</h3>
+<div class="alert alert-danger">
+    **Cảnh báo:** Việc xóa danh mục có thể ảnh hưởng đến các sách đang liên kết!
+</div>
+<div>
+    <h4>Danh mục</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Mã Danh mục:</dt>
+        <dd>@Html.DisplayFor(model => model.CategoryID)</dd>
+
+        <dt>Tên Danh mục:</dt>
+        <dd>@Html.DisplayFor(model => model.CategoryName)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xác nhận Xóa" class="btn btn-danger" /> |
+            @Html.ActionLink("Hủy bỏ và Quay lại danh sách", "Index")
+        </div>
+    }
+</div>

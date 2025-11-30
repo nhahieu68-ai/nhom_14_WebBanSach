@@ -1,0 +1,118 @@
+﻿@model WebBanSach.Models.Order
+
+@{
+    ViewBag.Title = "Chi tiết Đơn hàng #" + Model.OrderID;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var payment = ViewBag.Payment as WebBanSach.Models.Payment;
+}
+
+<h2><i class="fa fa-info-circle"></i> Chi tiết Đơn hàng #@Model.OrderID</h2>
+
+<div class="row">
+    <div class="col-md-5">
+        <h4>Thông tin chung</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Khách hàng:</dt>
+            <dd>@Model.User.FullName</dd>
+
+            <dt>Email:</dt>
+            <dd>@Model.User.Email</dd>
+
+            <dt>Điện thoại:</dt>
+            <dd>@Model.User.Phone</dd>
+
+            <dt>Tổng tiền:</dt>
+            <dd>**@String.Format("{0:N0}", Model.TotalAmount) VNĐ**</dd>
+
+            <dt>Trạng thái:</dt>
+            <dd>
+                @{
+                    string badgeClass = "";
+                    switch (Model.Status)
+                    {
+                        case "Pending": badgeClass = "label-warning"; break;
+                        case "Processing": badgeClass = "label-info"; break;
+                        case "Delivered": badgeClass = "label-success"; break;
+                        case "Cancelled": badgeClass = "label-danger"; break;
+                        default: badgeClass = "label-default"; break;
+                    }
+                }
+                <span class="label @badgeClass">@Model.Status</span>
+            </dd>
+
+            <dt>Thanh toán:</dt>
+            <dd>@payment?.Method</dd>
+
+            <dt>Ngày tạo:</dt>
+            <dd>@Model.CreatedAt.Value.ToString("dd/MM/yyyy HH:mm")</dd>
+        </dl>
+    </div>
+
+    <div class="col-md-7">
+        <h4>Cập nhật trạng thái</h4>
+        <hr />
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">@TempData["Success"]</div>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger">@TempData["Error"]</div>
+        }
+
+        @using (Html.BeginForm("UpdateStatus", "AdminOrder", FormMethod.Post, new { @class = "form-inline" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("id", Model.OrderID)
+            <div class="form-group">
+                <label for="status">Trạng thái mới:</label>
+                <select name="status" class="form-control">
+                    <option value="Pending" @(Model.Status == "Pending" ? "selected" : "")>Chờ xử lý</option>
+                    <option value="Processing" @(Model.Status == "Processing" ? "selected" : "")>Đang xử lý</option>
+                    <option value="Shipped" @(Model.Status == "Shipped" ? "selected" : "")>Đã giao hàng</option>
+                    <option value="Delivered" @(Model.Status == "Delivered" ? "selected" : "")>Đã nhận hàng</option>
+                    <option value="Cancelled" @(Model.Status == "Cancelled" ? "selected" : "")>Đã hủy</option>
+                </select>
+                <button type="submit" class="btn btn-warning">Cập nhật</button>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row" style="margin-top:20px;">
+    <div class="col-md-12">
+        <h4>Sản phẩm trong Đơn hàng</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sách</th>
+                    <th class="text-center">Số lượng</th>
+                    <th class="text-right">Đơn giá</th>
+                    <th class="text-right">Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderItems)
+                {
+                    <tr>
+                        <td>@item.Book?.Title</td>
+                        <td class="text-center">@item.Quantity</td>
+                        <td class="text-right">@String.Format("{0:N0}", item.UnitPrice) VNĐ</td>
+                        <td class="text-right">@String.Format("{0:N0}", item.Quantity * item.UnitPrice) VNĐ</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right"><strong>TỔNG CỘNG:</strong></td>
+                    <td class="text-right"><strong>@String.Format("{0:N0}", Model.TotalAmount) VNĐ</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</p>

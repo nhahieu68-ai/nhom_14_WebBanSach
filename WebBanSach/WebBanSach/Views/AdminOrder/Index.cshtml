@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebBanSach.Models.Order>
+
+@{
+    ViewBag.Title = "Quản lý Đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Thay thế bằng layout của bạn
+}
+
+<h2><i class="fa fa-shopping-cart"></i> Quản lý Đơn hàng</h2>
+
+<div style="padding:20px; background:#fff; border-radius:10px">
+    <h3>Chọn chức năng:</h3>
+    <ul>
+        <li><a href="/Book/Index">Quản lý sách</a></li>
+        <li><a href="/AdminOrder/Index">Quản lý đơn hàng</a></li>
+        <li><a href="/Category/Index">Quản lý danh mục</a></li>
+        <li><a href="/Voucher/Index">Quản lý mã giảm giá</a></li>
+        <li><a href="/User/Index">Quản lý người dùng</a></li>
+    </ul>
+</div>
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Mã ĐH</th>
+            <th>Khách hàng</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th>Ngày tạo</th>
+            <th>Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OrderID</td>
+                @* Dòng này dùng Navigation Property User từ Order Model *@
+                <td>@(item.User?.FullName ?? "Khách vãng lai")</td>
+                <td>@String.Format("{0:N0}", item.TotalAmount) VNĐ</td>
+                <td>
+                    @{
+                        string badgeClass = "";
+                        switch (item.Status)
+                        {
+                            case "Pending": badgeClass = "label-warning"; break;
+                            case "Processing": badgeClass = "label-info"; break;
+                            case "Delivered": badgeClass = "label-success"; break;
+                            case "Cancelled": badgeClass = "label-danger"; break;
+                            default: badgeClass = "label-default"; break;
+                        }
+                    }
+                    <span class="label @badgeClass">@item.Status</span>
+                </td>
+                <td>@item.CreatedAt.Value.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    @* Dòng này trỏ đến Action Details của AdminOrderController *@
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.OrderID }, new { @class = "btn btn-sm btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

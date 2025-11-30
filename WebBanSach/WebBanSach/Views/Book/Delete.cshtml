@@ -1,0 +1,23 @@
+﻿@model WebBanSach.Models.Book
+
+<h2>Xóa sách</h2>
+
+<p>Bạn chắc chắn muốn xóa sách:</p>
+<h3>@Model.Title</h3>
+
+<p><strong>Tác giả:</strong> @Model.Authors.FirstOrDefault()?.Name</p>
+
+<p><strong>Giá:</strong> @Model.Price</p>
+
+@if (Model.BookImages.Any())
+{
+    <img src="@Model.BookImages.FirstOrDefault().ImageUrl" style="width:150px;" />
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy</a>
+}

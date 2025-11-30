@@ -1,0 +1,101 @@
+﻿
+@model WebBanSach.Models.Order
+@{
+    ViewBag.Title = "Chi tiết đơn hàng #" + Model.OrderID;
+    var items = ViewBag.Items as List<WebBanSach.Models.OrderItem>;
+}
+
+<style>
+    .order-box {
+        background: #fff;
+        border: 1px solid #d9c8a8;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+    }
+
+    .order-header {
+        font-size: 22px;
+        font-weight: bold;
+        color: #4c413c;
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 20px;
+    }
+
+    .item-row {
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+        .item-row img {
+            width: 80px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #d9c8a8;
+        }
+
+    .item-title {
+        font-size: 16px;
+        color: #4c413c;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .item-price {
+        color: #a35700;
+        font-weight: bold;
+    }
+
+    .total-box {
+        text-align: right;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #7d4f2a;
+    }
+
+    .back-btn {
+        margin-top: 20px;
+    }
+</style>
+
+
+<div class="order-box">
+
+    <div class="order-header">
+        Đơn hàng #@Model.OrderID
+    </div>
+
+    @foreach (var i in items)
+    {
+        var book = i.Book;
+
+        <div class="item-row">
+
+            <!-- Ảnh sách -->
+            <img src="@(book.BookImages.FirstOrDefault()?.ImageUrl ?? "/Content/images/no-img.jpg")" />
+
+            <div style="flex:1;">
+                <p class="item-title">@book.Title</p>
+                <p>Số lượng: @i.Quantity</p>
+                <p class="item-price">@String.Format("{0:N0}₫", i.UnitPrice)</p>
+            </div>
+
+            <div style="text-align:right; min-width:120px; font-weight:600;">
+                @String.Format("{0:N0}₫", i.UnitPrice * i.Quantity)
+            </div>
+
+        </div>
+    }
+
+    <div class="total-box">
+        Tổng cộng: @String.Format("{0:N0}₫", Model.TotalAmount)
+    </div>
+
+</div>
+
+<a href="/Order/History" class="btn btn-secondary back-btn">← Quay lại lịch sử đơn hàng</a>

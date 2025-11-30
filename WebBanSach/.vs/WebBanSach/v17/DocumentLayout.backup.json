@@ -1,0 +1,245 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\WebBanSach\\WebBanSach\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|d:\\webbansach\\webbansach\\webbansach\\models\\bansachmodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\models\\bansachmodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\voucher\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\voucher\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\adminorder\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\adminorder\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\adminorder\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\adminorder\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\voucher\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\voucher\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\voucher\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\voucher\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\category\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\category\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|D:\\WebBanSach\\WebBanSach\\webbansach\\views\\user\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78FEB97D-2EB8-4065-AECA-3F461DA94848}|WebBanSach\\WebBanSach.csproj|solutionrelative:webbansach\\views\\user\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BanSachModel.edmx [Diagram1]",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Models\\BanSachModel.edmx",
+              "RelativeDocumentMoniker": "WebBanSach\\Models\\BanSachModel.edmx",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Models\\BanSachModel.edmx [Diagram1]",
+              "RelativeToolTip": "WebBanSach\\Models\\BanSachModel.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-11-28T14:43:44.257Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T06:06:30.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\User\\Profile.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\User\\Profile.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\User\\Profile.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\User\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T02:13:06.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\AdminOrder\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\AdminOrder\\Details.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\AdminOrder\\Details.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\AdminOrder\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T02:06:57.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\AdminOrder\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\AdminOrder\\Index.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\AdminOrder\\Index.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\AdminOrder\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T02:06:14.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Voucher\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\Voucher\\Edit.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Voucher\\Edit.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\Voucher\\Edit.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T02:02:51.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Voucher\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\Voucher\\Create.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Voucher\\Create.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\Voucher\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T02:02:13.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Voucher\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\Voucher\\Index.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Voucher\\Index.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\Voucher\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB0AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T02:01:18.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VoucherController.cs",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Controllers\\VoucherController.cs",
+              "RelativeDocumentMoniker": "WebBanSach\\Controllers\\VoucherController.cs",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Controllers\\VoucherController.cs",
+              "RelativeToolTip": "WebBanSach\\Controllers\\VoucherController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAgwF8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T02:00:39.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Category\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\Category\\Edit.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Category\\Edit.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\Category\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T01:56:13.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Category\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\Category\\Index.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\Category\\Index.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\Category\\Index.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T01:54:47.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\User\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\User\\Edit.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\User\\Edit.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\User\\Edit.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T01:38:42.877Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanSach\\Views\\User\\Index.cshtml",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "WebBanSach\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-26T01:38:06.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "WebBanSach\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\WebBanSach\\WebBanSach\\WebBanSach\\Controllers\\UserController.cs",
+              "RelativeToolTip": "WebBanSach\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAkwLoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T01:36:35.771Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

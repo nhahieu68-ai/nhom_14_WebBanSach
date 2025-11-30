@@ -1,0 +1,210 @@
+﻿@model WebBanSach.Models.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "Whisperwood – Trang chủ";
+}
+
+@section styles {
+    <style>
+        /* HERO */
+        .hero {
+            background-image: url('/Content/images/banner.png');
+            background-size: cover;
+            background-position: center;
+            height: 550px;
+            border-radius: 14px;
+            padding: 90px 60px;
+            color: #fff;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            background-color: #4c413c;
+            background-blend-mode: multiply;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            margin-bottom: 35px;
+            opacity: .95;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 700px;
+        }
+
+            .search-box input {
+                flex: 1;
+                padding: 14px 20px;
+                border-radius: 10px 0 0 10px;
+                border: none;
+                font-size: 16px;
+            }
+
+            .search-box button {
+                padding: 14px 22px;
+                border-radius: 0 10px 10px 0;
+                border: none;
+                background: #f5efe8;
+                color: #4c413c;
+                font-weight: 600;
+            }
+
+        /* SECTION TITLE */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            margin: 40px 0 25px;
+            color: #4c413c;
+        }
+
+        /* CATEGORY CARD */
+        .category-card {
+            background: #f7f3ec;
+            border: 1px solid #e0d4c4;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            transition: .25s;
+        }
+
+            .category-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            }
+
+        /* BOOK CARD */
+        .book-card {
+            border: 1px solid #e6d9c9;
+            border-radius: 10px;
+            padding: 14px;
+            background: white;
+            height: 100%;
+            transition: .25s;
+        }
+
+            .book-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+            }
+
+            .book-card img {
+                width: 100%;
+                height: 240px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+        /* SMALL BANNER */
+        .small-banner {
+            background-image: url('/Content/images/banner-small.png');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            border-radius: 14px;
+            margin: 45px 0;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        }
+    </style>
+}
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-title">Whisperwood Bookstore</div>
+    <div class="hero-sub">Những câu chuyện thì thầm giữa những trang giấy.</div>
+
+    <div class="search-box">
+        <form method="get" action="/Book/Search" class="d-flex justify-content-center mt-3 mb-4">
+            <input name="keyword"
+                   class="form-control"
+                   style="max-width: 500px;"
+                   placeholder="Tìm kiếm sách, tác giả, thể loại…" />
+
+            <button class="btn btn-dark ms-2">Tìm</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- CATEGORIES -->
+<h2 class="section-title">Danh mục nổi bật</h2>
+<div class="row">
+    @foreach (var cat in Model.Categories)
+    {
+        <div class="col-md-2 col-6 mb-3">
+            <a href="/Book/Category/@cat.CategoryID" style="text-decoration:none;color:#4c413c;">
+                <div class="category-card">
+                    <h5>@cat.CategoryName</h5>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+
+<!-- NEW BOOKS -->
+<h2 class="section-title">Sách mới cập nhật</h2>
+<div class="row">
+    @foreach (var b in Model.NewBooks)
+    {
+        <div class="col-md-3 col-6 mb-4">
+            <a href="/Book/Details/@b.BookID" style="text-decoration:none;color:#4c413c;">
+                <div class="book-card">
+                    <img src="@(b.BookImages.FirstOrDefault()?.ImageUrl ?? "/Content/images/no-img.jpg")" />
+                    <h5 class="mt-2">@b.Title</h5>
+                    <p style="color:#a35700;">@String.Format("{0:N0}₫", b.Price)</p>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+
+
+<!-- SMALL BANNER -->
+<div class="small-banner"></div>
+
+
+
+<!-- POPULAR BOOKS -->
+<h2 class="section-title">Sách nổi bật</h2>
+<div class="row">
+    @foreach (var b in Model.PopularBooks)
+    {
+        <div class="col-md-3 col-6 mb-4">
+            <a href="/Book/Details/@b.BookID" style="text-decoration:none;color:#4c413c;">
+                <div class="book-card">
+                    <img src="@(b.BookImages.FirstOrDefault()?.ImageUrl ?? "/Content/images/no-img.jpg")" />
+                    <h5 class="mt-2">@b.Title</h5>
+                    <p style="color:#a35700;">@String.Format("{0:N0}₫", b.Price)</p>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+
+
+<!-- BOOKS BY CATEGORY -->
+@foreach (var entry in Model.BooksByCategory)
+{
+    <h2 class="section-title">@entry.Key.CategoryName</h2>
+    <div class="row mb-4">
+        @foreach (var b in entry.Value)
+        {
+            <div class="col-md-2 col-6 mb-3">
+                <a href="/Book/Details/@b.BookID" style="text-decoration:none;color:#4c413c;">
+                    <div class="book-card">
+                        <img src="@(b.BookImages.FirstOrDefault()?.ImageUrl ?? "/Content/images/no-img.jpg")" />
+                        <h6 class="mt-2">@b.Title</h6>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+}

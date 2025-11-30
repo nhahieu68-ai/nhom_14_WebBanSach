@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Liên hệ";
+}
+
+@section styles {
+    <style>
+        .contact-box {
+            background: #fff;
+            border: 1px solid #d9c8a8;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 14px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #4c413c;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 1px solid #d9c8a8;
+            padding: 12px;
+        }
+
+        .btn-send {
+            background: #7d6b5e;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .info-box {
+            padding: 20px;
+            background: #f6f2ec;
+            border-radius: 12px;
+            border: 1px solid #d9c8a8;
+        }
+    </style>
+}
+
+<h2 class="section-title">Liên hệ với Whisperwood</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<div class="row">
+
+    <!-- FORM -->
+    <div class="col-md-7">
+        <div class="contact-box">
+
+            <form method="post" action="/Home/Contact">
+                <div class="mb-3">
+                    <label>Họ và tên</label>
+                    <input name="name" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input name="email" class="form-control" required type="email" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Nội dung</label>
+                    <textarea name="message" class="form-control" rows="5" required></textarea>
+                </div>
+
+                <button class="btn-send">Gửi liên hệ</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- STORE INFO -->
+    <div class="col-md-5">
+        <div class="info-box">
+            <h4 style="font-family:'Playfair Display'; color:#4c413c;">
+                Thông tin cửa hàng
+            </h4>
+
+            <p><strong>📍 Địa chỉ:</strong> Phòng HB08PM03, 806 Lê Quang Đạo, Trung Mỹ Tây, Quận 12, Thành phố Hồ Chí Minh</p>
+            <p><strong>📞 Điện thoại:</strong> 0123 456 789</p>
+            <p><strong>📧 Email:</strong> support@whisperwood.com</p>
+            <hr />
+            <p>
+                Whisperwood Bookstore hân hạnh đồng hành cùng bạn trong hành trình khám phá tri thức.
+                Chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc.
+            </p>
+        </div>
+    </div>
+
+</div>

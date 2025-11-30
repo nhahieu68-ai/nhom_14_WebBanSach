@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebBanSach.Models.Coupon>
+
+@{
+    ViewBag.Title = "Quản lý Mã giảm giá";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><i class="fa fa-gift"></i> Quản lý Mã giảm giá</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mã giảm giá mới", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Mã Code</th>
+            <th>Giảm giá</th>
+            <th>Ngày hết hạn</th>
+            <th>Trạng thái</th>
+            <th>Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var isExpired = item.ExpiredAt.HasValue && item.ExpiredAt.Value < DateTime.Now;
+            <tr>
+                <td>@item.CouponID</td>
+                <td><strong>@item.Code</strong></td>
+                <td>@item.DiscountPercent%</td>
+                <td>@(item.ExpiredAt.HasValue ? item.ExpiredAt.Value.ToString("dd/MM/yyyy HH:mm") : "Vĩnh viễn")</td>
+                <td>
+                    @{
+                        string badgeClass = isExpired ? "label-default" : "label-success";
+                        string statusText = isExpired ? "Hết hạn" : "Còn hiệu lực";
+                    }
+                    <span class="label @badgeClass">@statusText</span>
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.CouponID }, new { @class = "btn btn-sm btn-info" }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.CouponID }, new { @class = "btn btn-sm btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

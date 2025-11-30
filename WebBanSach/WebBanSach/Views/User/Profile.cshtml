@@ -1,0 +1,65 @@
+﻿@model WebBanSach.Models.User
+
+@{
+    ViewBag.Title = "Thông tin Cá nhân";
+    // Giả sử đây là layout chung cho người dùng, không phải Admin
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><i class="fa fa-user"></i> Thông tin Cá nhân</h2>
+<hr />
+
+@if (TempData["ProfileSuccess"] != null)
+{
+    <div class="alert alert-success">@TempData["ProfileSuccess"]</div>
+}
+@if (TempData["ProfileError"] != null)
+{
+    <div class="alert alert-danger">@TempData["ProfileError"]</div>
+}
+
+@using (Html.BeginForm("EditProfile", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.UserID)
+    @Html.HiddenFor(model => model.Email) @* Giữ Email không thay đổi *@
+    @Html.HiddenFor(model => model.PasswordHash) @* Giữ PasswordHash *@
+    @Html.HiddenFor(model => model.RoleID) @* Giữ RoleID *@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FullName, "Họ và Tên", new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone, "Điện thoại", new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Cập nhật thông tin" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<hr />
+<h3>Chức năng khác</h3>
+<ul>
+    <li>@Html.ActionLink("Xem Lịch sử Đơn hàng", "History", "Order")</li>
+    <li>@Html.ActionLink("Đổi mật khẩu", "ChangePassword", "Account")</li>
+</ul>

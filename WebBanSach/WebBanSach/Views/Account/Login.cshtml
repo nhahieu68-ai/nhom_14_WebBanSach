@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+}
+
+<style>
+    .auth-box {
+        background: white;
+        padding: 35px;
+        max-width: 480px;
+        margin: 40px auto;
+        border-radius: 14px;
+        border: 1px solid #e6dcd2;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: #4c413c;
+    }
+
+    .form-control {
+        background: #faf7f3;
+        border-radius: 8px;
+        border: 1px solid #d8ccc0;
+        padding: 12px;
+    }
+
+    .btn-auth {
+        width: 100%;
+        padding: 12px;
+        background: #7d6b5e;
+        color: white;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        transition: .25s;
+    }
+
+        .btn-auth:hover {
+            background: #6b5a4e;
+        }
+</style>
+
+<div class="auth-box">
+    <h2>Đăng nhập</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <form method="post">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control mb-3" required />
+
+        <label>Mật khẩu</label>
+        <input type="password" name="password" class="form-control mb-3" required />
+
+        <button type="submit" class="btn-auth">Đăng nhập</button>
+    </form>
+</div>

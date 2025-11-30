@@ -1,0 +1,142 @@
+﻿@model IEnumerable<WebBanSach.Models.Book>
+
+@{
+    ViewBag.Title = "Quản lý sách";
+}
+
+<style>
+    .page-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 32px;
+        font-weight: 600;
+        color: #4c413c;
+        margin: 20px 0;
+    }
+
+    .btn-add {
+        background: #7d6b5e;
+        border: none;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 8px;
+    }
+
+    /* TABLE */
+    .whisper-table {
+        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #e8ddd1;
+    }
+
+        .whisper-table thead {
+            background: #7d6b5e;
+            color: #fff;
+        }
+
+        .whisper-table th,
+        .whisper-table td {
+            padding: 12px 14px;
+            vertical-align: middle;
+            border-bottom: 1px solid #eee4d8;
+        }
+
+        .whisper-table tbody tr:hover {
+            background: #f7f3ee;
+        }
+
+    /* BUTTONS */
+    .btn-edit {
+        background: #c69c6d;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .btn-delete {
+        background: #b94a48;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    /* PAGINATION */
+    .pagination-wrapper {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+        .pagination-wrapper a {
+            padding: 8px 14px;
+            margin: 0 3px;
+            border-radius: 6px;
+            text-decoration: none;
+            border: 1px solid #d7c7b6;
+            color: #4c413c;
+            font-weight: 600;
+        }
+
+        .pagination-wrapper .active-page {
+            background: #7d6b5e;
+            color: white !important;
+            border-color: #7d6b5e;
+        }
+</style>
+
+<h2 class="page-title">Quản lý sách</h2>
+
+<p>
+    <a class="btn btn-add text-white" href="@Url.Action("Create")">+ Thêm sách</a>
+</p>
+
+<table class="table whisper-table">
+    <thead>
+        <tr>
+            <th>Tên sách</th>
+            <th>Tác giả</th>
+            <th>Giá</th>
+            <th>Ảnh</th>
+            <th style="width:150px;"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var b in Model)
+        {
+            var author = b.Authors.FirstOrDefault()?.Name;
+            var img = b.BookImages.FirstOrDefault()?.ImageUrl;
+
+            <tr>
+                <td>@b.Title</td>
+                <td>@author</td>
+                <td>@String.Format("{0:N0}₫", b.Price)</td>
+                <td>
+                    @if (img != null)
+                    {
+                        <img src="@img" style="width:70px; border-radius:6px;" />
+                    }
+                </td>
+                <td>
+                    <a class="btn-edit" href="@Url.Action("Edit", new { id = b.BookID })">Sửa</a>
+                    <a class="btn-delete" href="@Url.Action("Delete", new { id = b.BookID })"
+                       onclick="return confirm('Xóa sách này?');">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination-wrapper">
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        <a href="@Url.Action("Index", new { page = i })"
+           class="@(i == ViewBag.CurrentPage ? "active-page" : "")">
+            @i
+        </a>
+    }
+</div>

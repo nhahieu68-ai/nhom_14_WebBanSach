@@ -1,0 +1,50 @@
+﻿@model System.Collections.Generic.List<WebBanSach.Models.ViewModels.CartItemViewModel>
+
+<h2>Giỏ hàng</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sách</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Tổng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Book.Title</td>
+                <td>@item.Price.ToString("N0")</td>
+
+                <td>
+                    <form action="/Cart/UpdateQuantity" method="post">
+                        <input type="hidden" name="id" value="@item.BookID" />
+                        <input type="number" name="qty" value="@item.Quantity" min="1"
+                               style="width:70px;" />
+                        <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
+                    </form>
+                </td>
+
+                <td>@item.Total.ToString("N0")</td>
+
+                <td>
+                    <a class="btn btn-danger btn-sm" href="/Cart/Remove/@item.BookID">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3 style="text-align:right;">
+    Tổng tiền: <strong>@ViewBag.Total.ToString("N0")</strong> đ
+</h3>
+
+<!-- NÚT CHECKOUT NGAY DƯỚI NÀY -->
+<div style="text-align:right; margin-top:20px;">
+    <a href="@Url.Action("Checkout", "Order")" class="btn btn-success btn-lg">
+        Thanh toán
+    </a>
+</div>

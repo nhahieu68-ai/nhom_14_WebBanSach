@@ -1,0 +1,38 @@
+﻿@model List<WebBanSach.Models.ViewModels.WishlistItemViewModel>
+
+<h2>Sản phẩm yêu thích</h2>
+
+@if (!Model.Any())
+{
+    <p>Danh sách yêu thích của bạn đang trống.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sách</th>
+                <th>Giá</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <strong>@item.Book.Title</strong>
+                    </td>
+                    <td>
+                        @String.Format("{0:N0}₫", item.Book.Price)
+                    </td>
+                    <td>
+                        <a href="/Cart/AddToCart/@item.BookID" class="btn btn-success btn-sm">Thêm vào giỏ</a>
+                        <a href="/Wishlist/Remove/@item.BookID" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

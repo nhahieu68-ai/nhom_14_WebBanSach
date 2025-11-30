@@ -1,0 +1,163 @@
+﻿@model List<WebBanSach.Models.ViewModels.CartItemViewModel>
+@{
+    ViewBag.Title = "Thanh toán";
+    int shippingFee = 25000;   // phí giao hàng
+    int discount = ViewBag.Discount ?? 0;
+}
+<style>
+    .box {
+        background: white;
+        border: 1px solid #d9c8a8;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display',serif;
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #4c413c;
+    }
+</style>
+
+<h2 class="section-title">Thanh toán</h2>
+<div class="box">
+    <h4 class="section-title">Thông tin giao hàng</h4>
+
+    <div class="mb-2">
+        <label>Họ và tên</label>
+        <input class="form-control" name="fullName" required />
+    </div>
+
+    <div class="mb-2">
+        <label>Số điện thoại</label>
+        <input class="form-control" name="phone" required />
+    </div>
+
+    <div class="mb-2">
+        <label>Địa chỉ giao hàng</label>
+        <textarea class="form-control" name="address" rows="2" required></textarea>
+    </div>
+</div>
+<div class="row">
+    <!-- LEFT -->
+    <div class="col-md-7">
+
+        <!-- SHIPPING METHOD -->
+        <div class="box">
+            <h4 class="section-title">Phương thức nhận hàng</h4>
+
+            <div>
+                <label>
+                    <input type="radio" name="shippingMethod" value="delivery" checked />
+                    Giao hàng tận nơi (+25.000₫)
+                </label>
+                <br />
+                <label>
+                    <input type="radio" name="shippingMethod" value="pickup" />
+                    Nhận tại quầy (miễn phí)
+                </label>
+            </div>
+        </div>
+
+        <!-- PAYMENT METHOD -->
+        <div class="box">
+            <h4 class="section-title">Phương thức thanh toán</h4>
+
+            <div>
+                <label><input type="radio" name="payment" value="COD" checked /> Thanh toán khi nhận hàng</label><br />
+                <label><input type="radio" name="payment" value="BANK" /> Chuyển khoản ngân hàng</label><br />
+                <label><input type="radio" name="payment" value="MOMO" /> Ví MoMo</label><br />
+            </div>
+        </div>
+
+        <!-- PROMO -->
+        <div class="box">
+            <h4 class="section-title">Mã ưu đãi</h4>
+
+            <form method="post" action="/Order/ApplyPromo" class="d-flex gap-2">
+                <input name="code" class="form-control" placeholder="Nhập mã…" required />
+                <button class="btn btn-dark">Áp dụng</button>
+            </form>
+
+            @if (discount > 0)
+            {
+                <p class="text-success mt-2">Đã áp mã: giảm @discount₫</p>
+            }
+        </div>
+    </div>
+
+    <!-- RIGHT: ORDER SUMMARY -->
+    <div class="col-md-5">
+        <div class="box">
+            <h4 class="section-title">Đơn hàng</h4>
+
+            @foreach (var i in Model)
+            {
+                <div class="d-flex justify-content-between border-bottom py-2">
+                    <span>@i.Book.Title </span>
+                    <span>@String.Format("{0:N0}₫", i.Total)</span>
+                </div>
+            }
+
+            <hr />
+
+            <p>
+                Phí vận chuyển:
+                <span id="ship-fee">@shippingFee.ToString("N0")₫</span>
+            </p>
+
+            <p>Giảm giá: <span class="text-success">-@discount.ToString("N0")₫</span></p>
+
+            <hr />
+
+            @{
+                int cartTotal = (int)ViewBag.Total;
+                int finalShip = shippingFee;
+                int finalTotal = cartTotal + finalShip - discount;
+            }
+
+            <h4>
+                Tổng cộng:
+                <strong id="total-final">@finalTotal.ToString("N0")₫</strong>
+            </h4>
+
+            <form method="post" action="/Order/Checkout">
+                <input type="hidden" name="shippingMethod" id="ship-method" value="delivery" />
+                <input type="hidden" name="paymentMethod" id="pay-method" value="COD" />
+
+                <button class="btn btn-success w-100 mt-3"
+                        style="background:#7d6b5e;border:none;">
+                    Hoàn tất thanh toán
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // đổi chọn giao hàng / lấy tại quầy
+    document.querySelectorAll("input[name='shippingMethod']").forEach(r => {
+        r.addEventListener("change", () => {
+            let fee = r.value === "pickup" ? 0 : 25000;
+            document.getElementById("ship-fee").innerText = fee.toLocaleString() + "₫";
+
+            let base = @cartTotal;
+            let discount = @discount;
+
+            document.getElementById("total-final").innerText =
+                (base + fee - discount).toLocaleString() + "₫";
+
+            document.getElementById("ship-method").value = r.value;
+        });
+    });
+
+    // đổi phương thức thanh toán
+    document.querySelectorAll("input[name='payment']").forEach(r => {
+        r.addEventListener("change", () => {
+            document.getElementById("pay-method").value = r.value;
+        });
+    });
+</script>

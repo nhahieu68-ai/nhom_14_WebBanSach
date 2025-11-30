@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Đăng ký";
+}
+
+<div class="auth-box">
+    <h2>Đăng ký tài khoản</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <form method="post">
+        <label>Họ tên</label>
+        <input type="text" name="fullname" class="form-control mb-3" required />
+
+        <label>Email</label>
+        <input type="email" name="email" class="form-control mb-3" required />
+
+        <label>Mật khẩu</label>
+        <input type="password" name="password" class="form-control mb-3" required />
+
+        <label>Số điện thoại</label>
+        <input type="text" name="phone" class="form-control mb-4" />
+
+        <button type="submit" class="btn-auth">Đăng ký</button>
+    </form>
+</div>

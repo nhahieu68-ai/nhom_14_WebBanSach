@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebBanSach.Models.Book>
+@{
+    ViewBag.Title = ViewBag.CategoryName;
+}
+
+<style>
+    .book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .book-card {
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #e0d4c4;
+        transition: .25s;
+        text-align: center;
+    }
+
+    .book-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .book-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+        .book-card img
+        {
+            height: 180px;
+        }
+</style>
+
+<h2>@ViewBag.CategoryName</h2>
+
+<div class="book-grid">
+    @foreach (var book in Model)
+    {
+        <a href="/Book/Details/@book.BookID" style="text-decoration:none;color:#333;">
+            <div class="book-card">
+                <img src="@(book.BookImages.FirstOrDefault()?.ImageUrl ?? "/Content/images/no-img.jpg")" />
+                <h5 class="mt-2">@book.Title</h5>
+            </div>
+        </a>
+    }
+</div>

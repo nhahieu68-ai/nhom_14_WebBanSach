@@ -1,0 +1,35 @@
+﻿@model WebBanSach.Models.Coupon
+
+@{
+    ViewBag.Title = "Xóa Mã giảm giá";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Bạn có chắc chắn muốn xóa mã giảm giá này?</h3>
+<div class="alert alert-warning">
+    **Cảnh báo:** Mã giảm giá bị xóa sẽ không thể sử dụng được nữa.
+</div>
+<div>
+    <h4>Thông tin Mã giảm giá</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Mã Code:</dt>
+        <dd><strong>@Html.DisplayFor(model => model.Code)</strong></dd>
+
+        <dt>Giảm giá:</dt>
+        <dd>@Html.DisplayFor(model => model.DiscountPercent)%</dd>
+
+        <dt>Ngày hết hạn:</dt>
+        <dd>@(Model.ExpiredAt.HasValue ? Model.ExpiredAt.Value.ToString("dd/MM/yyyy HH:mm") : "Vĩnh viễn")</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xác nhận Xóa" class="btn btn-danger" /> |
+            @Html.ActionLink("Hủy bỏ và Quay lại danh sách", "Index")
+        </div>
+    }
+</div>

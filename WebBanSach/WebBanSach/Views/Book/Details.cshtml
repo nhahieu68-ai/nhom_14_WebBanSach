@@ -1,0 +1,138 @@
+﻿@model WebBanSach.Models.ViewModels.BookDetailViewModel
+@{
+    ViewBag.Title = Model.Book.Title;
+}
+
+<div class="container mt-4">
+
+    <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-light p-2">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/Book">Sách</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.Book.Title</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+
+        <!-- ẢNH SÁCH -->
+        <div class="col-md-5">
+
+            <div class="main-img mb-3" style="border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+                <img id="mainImage"
+                     src="@(Model.Book.BookImages.FirstOrDefault()?.ImageUrl ?? "/Content/images/no-img.jpg")"
+                     style="width:100%; cursor:pointer;" />
+            </div>
+
+            <!-- THUMBNAILS -->
+            <div class="d-flex gap-2">
+                @foreach (var img in Model.Book.BookImages)
+                {
+                    <img src="@img.ImageUrl"
+                         class="thumb-img"
+                         style="
+                            width:80px;
+                            height:80px;
+                            object-fit:cover;
+                            border-radius:6px;
+                            border:2px solid #d9c8a8;
+                            cursor:pointer;" />
+                }
+            </div>
+
+        </div>
+
+        <!-- THÔNG TIN SÁCH -->
+        <div class="col-md-7">
+
+            <h1 style="font-family:'Playfair Display',serif; color:#4c413c;">
+                @Model.Book.Title
+            </h1>
+
+            <p>
+                <strong>Tác giả:</strong>
+                @string.Join(", ", Model.Book.Authors.Select(a => a.Name))
+            </p>
+
+            <h3 style="color:#a35700;">@String.Format("{0:N0}₫", Model.Book.Price)</h3>
+
+            <p>@Model.Book.Description</p>
+
+            <!-- FORM THÊM VÀO GIỎ - ĐÃ SỬA ĐÚNG ACTION -->
+            @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Get))
+            {
+                @Html.Hidden("id", Model.Book.BookID)
+
+                <label>Số lượng:</label>
+                <input type="number" name="qty" value="1" min="1"
+                       style="width:80px; border:1px solid #d9c8a8; padding:5px;" />
+
+                <button type="submit" class="btn btn-success mt-2"
+                        style="background-color:#7d6b5e; border:none;">
+                    Thêm vào giỏ
+                </button>
+            }
+
+            <!-- Nút thêm vào Yêu thích -->
+            <a href="/Wishlist/Add/@Model.Book.BookID"
+               class="btn btn-outline-danger mt-2"
+               style="border-color:#d9534f; color:#d9534f;">
+                ❤️ Thêm vào yêu thích
+            </a>
+
+
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- REVIEW -->
+    <h3>Đánh giá</h3>
+
+    @foreach (var r in Model.Reviews)
+    {
+        <div style="border-bottom:1px solid #eee; padding:10px 0;">
+            <strong>Người dùng #@r.UserID</strong>
+            <span>@r.Rating ★</span>
+            <p>@r.Comment</p>
+        </div>
+    }
+
+    <hr />
+
+    <!-- SÁCH LIÊN QUAN -->
+    <h3>Sách liên quan</h3>
+
+    <div class="row mt-3">
+        @foreach (var b in Model.RelatedBooks)
+        {
+            <div class="col-md-2 col-6 mb-4">
+                <a href="/Book/Details/@b.BookID" style="text-decoration:none; color:#333;">
+                    <div class="book-card p-2" style="border:1px solid #d9c8a8; border-radius:6px;">
+                        <img src="@(b.BookImages.FirstOrDefault()?.ImageUrl ?? "/Content/images/no-img.jpg")"
+                             style="width:100%; height:160px; object-fit:cover;" />
+                        <p style="font-size:15px; margin-top:5px;">@b.Title</p>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+
+</div>
+
+<script>
+    const thumbs = document.querySelectorAll('.thumb-img');
+    const mainImg = document.getElementById('mainImage');
+
+    thumbs.forEach(t => {
+        t.addEventListener('click', () => {
+            mainImg.src = t.src;
+        });
+    });
+
+    mainImg.addEventListener('click', () => {
+        const w = window.open("", "_blank");
+        w.document.write("<img src='" + mainImg.src + "' style='width:100%;' />");
+    });
+</script>

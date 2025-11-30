@@ -1,0 +1,48 @@
+﻿@model WebBanSach.Models.Book
+
+<h2>Thêm sách</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Tên sách</label>
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Tác giả</label>
+        <input type="text" name="AuthorName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Giá</label>
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number" })
+    </div>
+
+    <div class="form-group">
+        <label>Ảnh URL</label>
+        <input type="text" name="ImageUrl" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Thể loại:</label><br />
+
+        @foreach (var cat in ViewBag.CategoryList)
+        {
+            <label style="display:block;">
+                <input type="checkbox" name="SelectedCategories" value="@cat.CategoryID" />
+                @cat.CategoryName
+            </label>
+        }
+    </div>
+
+    <div class="form-group">
+        <label>Mô tả</label>
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 4 })
+    </div>
+
+    <button type="submit" class="btn btn-success">Lưu</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy</a>
+}
